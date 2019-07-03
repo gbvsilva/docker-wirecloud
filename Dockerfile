@@ -1,16 +1,16 @@
 FROM alpine:edge
 
-WORKDIR /opt/wirecloud_instance
+WORKDIR /opt/wirecloud
 
 RUN apk update
-RUN apk add --no-cache python py-pip python-dev
-RUN pip install -U pip
-RUN pip install wheel
+RUN apk add --no-cache python3 py3-pip python3-dev
+RUN pip3 install -U pip
+RUN pip3 install wheel
 
-RUN apk add --no-cache build-base py-openssl libxml2-dev libxslt-dev zlib-dev pcre-dev curl-dev jpeg-dev
-RUN pip install ndg-httpsclient pyasn1 parse
+RUN apk add --no-cache build-base py3-openssl libxml2-dev libxslt-dev zlib-dev pcre-dev curl-dev jpeg-dev
+RUN pip3 install ndg-httpsclient pyasn1
 
-RUN pip install wirecloud
+RUN pip3 install wirecloud
 
 RUN wirecloud-admin startproject wirecloud_instance --quick-start
 
