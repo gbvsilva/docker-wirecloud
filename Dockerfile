@@ -14,8 +14,8 @@ RUN pip3 install wirecloud
 
 RUN wirecloud-admin startproject wirecloud_instance --quick-start
 
-ADD wirecloud.sh .
+COPY wirecloud.sh ./wirecloud.sh
 
 EXPOSE 8000
 
-CMD ["wirecloud.sh"]
+CMD ["/opt/wirecloud/wirecloud.sh"]

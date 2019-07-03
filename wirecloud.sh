@@ -1,4 +1,4 @@
 #!/bin/sh
-cd wirecloud_instance
-python manage.py populate
-python manage.py runserver 0.0.0.0:8000 --insecure
+cd /opt/wirecloud/wirecloud_instance
+python3 manage.py populate
+python3 manage.py runserver 0.0.0.0:8000 --insecure
