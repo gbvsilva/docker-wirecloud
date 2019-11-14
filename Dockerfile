@@ -1,6 +1,8 @@
 FROM debian:stretch
 
 WORKDIR /opt
+ADD wirecloud.sh /opt/wirecloud.sh
+RUN chmod +x /opt/wirecloud.sh
 
 RUN apt update
 RUN apt install -y python3 python3-pip python3-dev python3-setuptools git \
@@ -25,4 +27,4 @@ RUN rm -r wirecloud
 RUN apt autoclean
 RUN apt clean
 
-ENTRYPOINT ["python3 wirecloud_instance/manage.py runserver 0.0.0.0:8000 --insecure"]
+ENTRYPOINT ["/opt/wirecloud.sh"]
